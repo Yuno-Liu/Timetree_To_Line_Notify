@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Timetree_To_Line_Notify", "Timetree_To_Line_Notify\Timetree_To_Line_Notify.csproj", "{9455AEF9-5335-4CE4-A7E7-B0E6CE78AB52}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9455AEF9-5335-4CE4-A7E7-B0E6CE78AB52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9455AEF9-5335-4CE4-A7E7-B0E6CE78AB52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9455AEF9-5335-4CE4-A7E7-B0E6CE78AB52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9455AEF9-5335-4CE4-A7E7-B0E6CE78AB52}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
