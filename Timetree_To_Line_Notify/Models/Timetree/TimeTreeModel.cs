@@ -9,79 +9,107 @@ namespace TimeTreeModel
 
     public partial class Data
     {
-        [JsonPropertyName("data")] public Datum[] DataData { get; set; }
+        [ JsonPropertyName("data") ]
+        public Datum[] DataData { get; set; }
     }
 
     public partial class Datum
     {
-        [JsonPropertyName("id")] public string Id { get; set; }
+        [ JsonPropertyName("id") ]
+        public string Id { get; set; }
 
-        [JsonPropertyName("type")] public string Type { get; set; }
+        [ JsonPropertyName("type") ]
+        public string Type { get; set; }
 
-        [JsonPropertyName("attributes")] public Attributes Attributes { get; set; }
+        [ JsonPropertyName("attributes") ]
+        public Attributes Attributes { get; set; }
 
-        [JsonPropertyName("relationships")] public Relationships Relationships { get; set; }
+        [ JsonPropertyName("relationships") ]
+        public Relationships Relationships { get; set; }
     }
 
     public partial class Attributes
     {
-        [JsonPropertyName("title")] public string Title { get; set; }
+        [ JsonPropertyName("title") ]
+        public string Title { get; set; }
 
-        [JsonPropertyName("all_day")] public bool AllDay { get; set; }
+        [ JsonPropertyName("all_day") ]
+        public bool AllDay { get; set; }
 
-        [JsonPropertyName("start_at")] public DateTimeOffset StartAt { get; set; }
+        [ JsonPropertyName("start_at") ]
+        public DateTimeOffset StartAt { get; set; }
 
-        [JsonPropertyName("start_timezone")] public string StartTimezone { get; set; }
+        [ JsonPropertyName("start_timezone") ]
+        public string StartTimezone { get; set; }
 
-        [JsonPropertyName("end_at")] public DateTimeOffset EndAt { get; set; }
+        [ JsonPropertyName("end_at") ]
+        public DateTimeOffset EndAt { get; set; }
 
-        [JsonPropertyName("end_timezone")] public string EndTimezone { get; set; }
+        [ JsonPropertyName("end_timezone") ]
+        public string EndTimezone { get; set; }
 
-        [JsonPropertyName("location")] public string Location { get; set; }
+        [ JsonPropertyName("location") ]
+        public string Location { get; set; }
 
-        [JsonPropertyName("location_lat")] public object LocationLat { get; set; }
+        [ JsonPropertyName("location_lat") ]
+        public object LocationLat { get; set; }
 
-        [JsonPropertyName("location_lon")] public object LocationLon { get; set; }
+        [ JsonPropertyName("location_lon") ]
+        public object LocationLon { get; set; }
 
-        [JsonPropertyName("url")] public Uri Url { get; set; }
+        [ JsonPropertyName("url") ]
+        public Uri Url { get; set; }
 
-        [JsonPropertyName("updated_at")] public DateTimeOffset UpdatedAt { get; set; }
+        [ JsonPropertyName("updated_at") ]
+        public DateTimeOffset UpdatedAt { get; set; }
 
-        [JsonPropertyName("created_at")] public DateTimeOffset CreatedAt { get; set; }
+        [ JsonPropertyName("created_at") ]
+        public DateTimeOffset CreatedAt { get; set; }
 
-        [JsonPropertyName("category")] public string Category { get; set; }
+        [ JsonPropertyName("category") ]
+        public string Category { get; set; }
 
-        [JsonPropertyName("description")] public object Description { get; set; }
+        [ JsonPropertyName("description") ]
+        public object Description { get; set; }
 
-        [JsonPropertyName("recurrence")] public object Recurrence { get; set; }
+        [ JsonPropertyName("recurrence") ]
+        public object Recurrence { get; set; }
 
-        [JsonPropertyName("recurring_uuid")] public object RecurringUuid { get; set; }
+        [ JsonPropertyName("recurring_uuid") ]
+        public object RecurringUuid { get; set; }
     }
 
     public partial class Relationships
     {
-        [JsonPropertyName("label")] public Creator Label { get; set; }
+        [ JsonPropertyName("label") ]
+        public Creator Label { get; set; }
 
-        [JsonPropertyName("creator")] public Creator Creator { get; set; }
+        [ JsonPropertyName("creator") ]
+        public Creator Creator { get; set; }
 
-        [JsonPropertyName("attendees")] public Attendees Attendees { get; set; }
+        [ JsonPropertyName("attendees") ]
+        public Attendees Attendees { get; set; }
     }
 
     public partial class Attendees
     {
-        [JsonPropertyName("data")] public Dat[] Data { get; set; }
+        [ JsonPropertyName("data") ]
+        public Dat[] Data { get; set; }
     }
 
     public partial class Dat
     {
-        [JsonPropertyName("id")] public string Id { get; set; }
+        [ JsonPropertyName("id") ]
+        public string Id { get; set; }
 
-        [JsonPropertyName("type")] public string Type { get; set; }
+        [ JsonPropertyName("type") ]
+        public string Type { get; set; }
     }
 
     public partial class Creator
     {
-        [JsonPropertyName("data")] public Dat Data { get; set; }
+        [ JsonPropertyName("data") ]
+        public Dat Data { get; set; }
     }
 
     public partial class Data

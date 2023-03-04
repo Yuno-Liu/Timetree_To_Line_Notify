@@ -4,6 +4,7 @@ using System.Text.Json;
 using TimeTreeModel;
 using CalendarModel;
 using RestSharp;
+using Timetree_To_Line_Notify.Models.Reurl;
 
 // GetShortUrl("https://google.com.tw");
 IConfigurationRoot _config;
@@ -72,6 +73,11 @@ static async Task GetTimeTreeData(IConfiguration _configuration, List<Classifica
                 message += $"起始時間：{startAt:tt hh:mm}\n";
                 message += $"結束日期：{endAt:yyyy/MM/dd}\n";
                 message += $"結束時間：{endAt:tt hh:mm}\n";
+                string url =
+                    $"https://timetreeapp.com/calendars/{type.ID}/events/{datum.Attributes.RecurringUuid}?date={startAt:yyyy-MM-dd}";
+                var shortUrl = GetShortUrl(_configuration, url);
+                message +=
+                    $"網址：{shortUrl}\n";
                 message += "\n";
             }
 
@@ -94,43 +100,17 @@ static async Task SendMessageToLine(IConfiguration configuration, string message
         new FormUrlEncodedContent(content));
 }
 
-
-/*
- *             curl -X POST https://api.reurl.cc/shorten \
-              -H 'Content-Type: application/json' \
-              -H 'reurl-api-key: 4070ff49d794e13311503b663c974755ecd1b638999304df8a38b58d65165567c4f5d6' \
-              -d '{ "url" : "https://www.google.com", "utm_source" : "FB_AD" }'
- */
-
-
-static string GetShortUrl(string longUrl)
+static string GetShortUrl(IConfiguration configuration, string longUrl)
 {
-    //            curl -X POST https://api.reurl.cc/shorten \
-    // -H 'Content-Type: application/json' \
-    // -H 'reurl-api-key: 4070ff49d794e13311503b663c974755ecd1b638999304df8a38b58d65165567c4f5d6' \
-    // -d '{ "url" : "https://www.google.com", "utm_source" : "FB_AD" }'
     var client = new RestClient("https://api.reurl.cc/shorten");
     var request = new RestRequest();
     request.AddHeader("Content-Type", "application/json");
-    request.AddHeader("reurl-api-key",
-        "4070ff49d794e13311503b663c974755ecd1b638999304df8a38b58d65165567c4f5d6");
+    request.AddHeader("reurl-api-key", configuration["ReurlApiKey"]);
     request.AddJsonBody(new { url = longUrl, utm_source = "" });
     var response = client.Post(request);
     var content = response.Content; // raw content as string
-    return content;
-
-    // HttpClient httpClient = new HttpClient();
-    // httpClient.DefaultRequestHeaders.Add("Content-Type", "application/json");
-    // httpClient.DefaultRequestHeaders.Add("reurl-api-key",
-    //     "4070ff49d794e13311503b663c974755ecd1b638999304df8a38b58d65165567c4f5d6/");
-    // var content = new FormUrlEncodedContent(new[]
-    // {
-    //     new KeyValuePair<string, string>("Content-Type", "application/json"),
-    //     new KeyValuePair<string, string>("reurl-api-key",
-    //         "4070ff49d794e13311503b663c974755ecd1b638999304df8a38b58d65165567c4f5d6")
-    // });
-    // var response = await httpClient.PostAsync("https://api.reurl.cc/shorten", content);
-    // var responseString = await response.Content.ReadAsStringAsync();
+    ReurlModel result = JsonSerializer.Deserialize<ReurlModel>(content);
+    return result.short_url;
 }
 
 
